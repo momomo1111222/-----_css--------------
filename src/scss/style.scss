@@ -1,2 +1,10 @@
 @forward './base';
 @forward './layout';
+
+//テスト
+//@forward './test/a';
+//@forward './test/b';
+
+@forward './test/';
+// test/index.scss indexという名前に限り書かなくていい
+
