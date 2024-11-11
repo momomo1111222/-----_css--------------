@@ -154,7 +154,7 @@
 .l_gnav {
     //opacity:0;
     transition: opacity .3s linear;
-    background-color: yellow; //後で削除
+    //background-color: yellow; //後で削除
 
     @include touch {
         pointer-events: none; //マウスやタッチ操作できなくなる
