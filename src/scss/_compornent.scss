@@ -65,7 +65,7 @@
             text-align: center;
 
             @include desktop {
-                @include fz(30)
+                @include fz(30);
             }
         }
     }
@@ -94,22 +94,22 @@
         width: 32%;
         margin-left: 2%;
         margin-top: 2%;
+        
+        @include desktop {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        
+        //1~3個目のカード
+        &:nth-child(-n + 3) {
+            margin-top: 0;
+        }
+        
+        &:nth-child(3n + 1) {
+            margin-left: 0;
+        }
     }
-
-    @include desktop {
-        margin-top: 20px;
-        margin-left: 20px;
-    }
-
-    //1~3個目のカード
-    &:nth-child(-n + 3) {
-        margin-top: 0;
-    }
-
-    &:nth-child(3n + 1) {
-        margin-left: 0;
-    }
-    
+        
 }
 
 

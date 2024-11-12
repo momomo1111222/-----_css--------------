@@ -152,8 +152,9 @@
 
 //グローバルナビゲーション
 .l_gnav {
-    //opacity:0;
+    opacity:0;
     transition: opacity .3s linear;
+    //background-color: yellow;
 
     @include touch {
         pointer-events: none; //マウスやタッチ操作できなくなる
@@ -266,14 +267,109 @@
   }
 
 
-  //メイン
+  // メイン
   .l_main {
-    min-height:500px;
+    min-height: 500px;
     padding-bottom: 40px;
     background-color: $color_bg;
 
     @include desktop {
         padding-top: 20px;
         padding-bottom: 85px;
+    }
+  }
+
+
+  // フッター
+  .l_footer {
+    background-color: $color_primary;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 200px;
+        padding: 24px 30px 20px;
+        margin: 0 auto;
+
+        @include desktop {
+            max-width: 1280px;
+            padding: 30px 50px;
+            flex-direction: row;
+        }
+    }
+
+    //ナビゲーション
+    &__nav {
+        display: flex;
+        flex-direction: column;
+
+        @include desktop {
+            flex-direction: row;
+        }
+
+        //nav
+        &Body {
+            display: flex;
+
+            // l_footer__navBody + l_footer__navBody
+            & + & {
+                margin-top: 30px;
+
+                @include desktop {
+                    margin-top: 0;
+                    margin-left: 50px;
+                }
+            }
+        }
+
+        //見出し
+        &Name {
+            color:#958154;
+            @include fz(12);
+            text-transform: uppercase;
+            white-space: nowrap; //文字の折り返しなし
+            margin-top: 6px;
+
+            @include mobile {
+                width: 7px;
+            }
+        }
+
+        &List {
+            display: flex;
+            margin-left: 10px;
+            flex-wrap: wrap;
+
+            @include desktop {
+                flex-direction: column;
+                margin-left: 28px;
+            }
+        }
+
+        &Item {
+            @include fz(12);
+            margin-top: 6px;
+            text-transform: uppercase;
+
+            //＆+＆　2つめ以降の兄弟要素
+            & + & {
+                &::before {
+                    @include touch {
+                        content: ' | '; // パイプ
+                        color: #fff;
+                    }
+                }
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+
+                @include desktop {
+                    padding: 6px 0;
+                }
+            }
+        }
     }
   }
